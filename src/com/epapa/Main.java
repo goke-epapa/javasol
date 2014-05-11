@@ -136,6 +136,11 @@ public class Main {
         return groupText;
     }
     
+    /**
+     * Solution to Problem 17 on http://projecteuler.net
+     * @param number
+     * @return 
+     */
     public static long projectEulerNumber17(int number){
         long result = 0;
         
