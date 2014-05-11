@@ -30,8 +30,8 @@ public class Main {
     };
 
     public static void main(String[] args) {
-        int number = 1880;
-        System.out.println(Main.numberToWords(number));
+        int number = 1000;
+        System.out.println(Main.projectEulerNumber17(number));
     }
 
     /**
@@ -134,5 +134,16 @@ public class Main {
         }
 
         return groupText;
+    }
+    
+    public static long projectEulerNumber17(int number){
+        long result = 0;
+        
+        for(int i = 1; i <= number; i++){
+            result += Main.numberToWords(i).replace(",", "")
+                    .replace(" ", "")
+                    .replace("-", "").length();
+        }
+        return result;
     }
 }
