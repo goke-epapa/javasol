@@ -5,7 +5,7 @@
 package com.epapa;
 
 /**
- * Main Calss
+ * Main Class
  *
  * @author Adegoke Obasa
  */
@@ -30,8 +30,8 @@ public class Main {
     };
 
     public static void main(String[] args) {
-        int number = 900;
-        System.out.println(Main.threeDigitsGroupToWords(number));
+        int number = 1880;
+        System.out.println(Main.numberToWords(number));
     }
 
     /**
@@ -42,7 +42,7 @@ public class Main {
      */
     public static String numberToWords(int number) {
         // Zero Rule
-        if (number != 0) {
+        if (number == 0) {
             return smallNumbers[0];
         }
 
@@ -70,12 +70,14 @@ public class Main {
         boolean appendAnd;
         
         // Determine whether an 'and' is needed
-        appendAnd = (digitGroups[0] > 0) && (digitGroups[0] < 10);
+        appendAnd = (digitGroups[0] > 0) && (digitGroups[0] < 100);
         
         // Process the remaining groups in turn, smallest to largest
         for(int i = 1; i < groupText.length; i++){
-            // Only add non-zero items
-            String prefix = groupText[i] + " " + smallNumbers[i];
+            
+            if(digitGroups[i] != 0){
+                // Only add non-zero items
+            String prefix = groupText[i] + " " + scale[i];
             
             if(combined.length() != 0){
                 prefix += appendAnd ? " and " : ", ";
@@ -86,6 +88,7 @@ public class Main {
             
             // And the three-digit group to the combined string
             combined = prefix + combined;
+            }
         }
         
         // Negative Rule
