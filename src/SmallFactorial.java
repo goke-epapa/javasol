@@ -18,10 +18,10 @@ public class SmallFactorial {
     
     public static void main(String[] args) throws IOException{
         BufferedReader bInputStream = new BufferedReader(new InputStreamReader(System.in));
-        int inputNum = Integer.parseInt(bInputStream.readLine());
+        int inputNum = Integer.parseInt(bInputStream.readLine().trim());
         
         for(int i = 0; i < inputNum; i++){
-            System.out.println(factorial(Integer.parseInt(bInputStream.readLine())));
+            System.out.println(factorial(Integer.parseInt(bInputStream.readLine().trim())));
         }
         System.exit(0);
     }
